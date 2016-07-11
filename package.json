@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "koa": "^1.2.0",
+    "scss-to-json": "git+https://github.com/majunbao/scss-to-json.git"
+  }
+}
