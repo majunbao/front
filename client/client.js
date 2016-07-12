@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
           content += '<label>' + label + '</label><textarea>' + value + '</textarea>'
         }
       }
+      
       container.innerHTML = '<from>' + content + '</from>';
       initAreaH()
     }

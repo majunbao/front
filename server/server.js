@@ -42,20 +42,20 @@ function getCss(module) {
   try {
     return sass.renderSync({
       file: `modules/${module}/${module}.scss`,
-      includePaths: ['configs'],
+      includePaths: ['configs/default'],
       outputStyle: 'expanded'
     }).css.toString()
   } catch (err) {
-    console.log(Error(err))
+    console.log('Not CSS: '+module)
     return null;
   }
 }
 
 function getCssConfig(module) {
   try {
-    return scssToJson(`configs/${module}.config.scss`);
+    return scssToJson(`configs/default/${module}.config.scss`);
   } catch (err) {
-    console.log(Error(err));
+    console.log('Not Config: '+module);
     return null;
   }
 }
@@ -64,7 +64,7 @@ function getHtml(module) {
   try {
     return fs.readFileSync(path.join('modules', module, module + '.html')).toString();
   } catch (err) {
-    console.log(Error(err));
+    console.log('Not HTML: '+module);
     return null;
   }
 }
