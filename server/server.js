@@ -5,7 +5,7 @@ const app = new Koa();
 const scssToJson = require('scss-to-json');
 const sass = require('node-sass');
 
-app.use(function *(next) {
+app.use(function*(next) {
   let method = this.method;
   let module = this.path;
   yield next;
@@ -15,7 +15,7 @@ app.use(function *(next) {
 
 app.listen(3000);
 
-function distHtml(content,css) {
+function distHtml(content, css) {
   let html = `<!DOCTYPE html>
 <html>
   <head>
@@ -38,23 +38,40 @@ function distHtml(content,css) {
   return html;
 }
 
-function getCss(module){
-  return sass.renderSync({
-    file: `modules/${module}/${module}.scss`,
-    includePaths: ['configs'],
-    outputStyle: 'expanded'
-  }).css.toString()
-}
-function getCssConfig(module){
-  return scssToJson(`configs/${module}.config.scss`);
-}
-
-function getHtml(module){
-  return fs.readFileSync(path.join('modules', module, module + '.html')).toString();
+function getCss(module) {
+  try {
+    return sass.renderSync({
+      file: `modules/${module}/${module}.scss`,
+      includePaths: ['configs'],
+      outputStyle: 'expanded'
+    }).css.toString()
+  } catch (err) {
+    console.log(Error(err))
+    return null;
+  }
 }
 
-function getModule(module){
+function getCssConfig(module) {
+  try {
+    return scssToJson(`configs/${module}.config.scss`);
+  } catch (err) {
+    console.log(Error(err));
+    return null;
+  }
+}
+
+function getHtml(module) {
+  try {
+    return fs.readFileSync(path.join('modules', module, module + '.html')).toString();
+  } catch (err) {
+    console.log(Error(err));
+    return null;
+  }
+}
+
+function getModule(module) {
   let moduleObj = {}
+  moduleObj.name = module.replace('/', '');
   moduleObj.html = getHtml(module);
   moduleObj.css = getCss(module);
   moduleObj.cssConfig = getCssConfig(module)

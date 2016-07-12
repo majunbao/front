@@ -30,10 +30,11 @@ $input-background: transparent !default;
 * (name, border-color, color)
 * 
 */
-$input-colors:  (blue $blue $blue)
-                (green $green $green)
-                (orange $orange $orange)
-                (grey $grey $grey) !default;
+$input-colors-doc: name border-color color;
+$input-colors:  blue $blue $blue,
+                green $green $green,
+                orange $orange $orange,
+                grey $grey $grey !default;
 
 /*
 * Input Sizes

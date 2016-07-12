@@ -1,0 +1,10 @@
+// config
+$column-width: 100% !default;
+$column-blank: 0 !default;
+
+$column-doc: num num num num num;
+$column : (2 1)
+          (3 2 1)
+          (4 3 2 1)
+          (5 4 3 2 1)
+          !default;

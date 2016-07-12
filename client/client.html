@@ -5,100 +5,15 @@
   <meta charset="UTF-8">
   <title>Client</title>
   <link rel="stylesheet" href="client.css">
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var i = 0;
-    var modules = ['button', 'input']
-    var xhr = new XMLHttpRequest();
-    var styleEle = document.createElement('style');
-    document.head.appendChild(styleEle);
-
-    function render() {
-      var module = modules[i];
-      getData(module, function(data) {
-        if(data.html)
-          document.body.innerHTML += data.html;
-        if(data.css)
-          styleEle.textContent += data.css;
-        if (modules.length > ++i) {
-          render();
-        }
-      });
-    }
-
-    function getData(module, callback) {
-      xhr.open('GET', 'http://localhost:3000/' + module);
-      xhr.onload = function(event) {
-        callback(JSON.parse(this.response))
-      };
-      xhr.send();
-    }
-
-    render(modules);
-  })
-  </script>
+  <script src="client.js"></script>
 </head>
 
 <body>
-  <section class="namespace-setting">
-    <div class="namespace-setting-width"></div>
+  <section id="namespace-uikit"></section>
+  <section id="namespace-setting">
+    <div id="namespace-setting-width"></div>
     <article id="namespace-setting-container">
-      <h2 class="module-title">Form</h2>
-      <form action="javascript:;">
-        <label class="anchor">aases:</label>
-        <fieldset>
-          <label>padding: </label>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
-        </fieldset>
-        <fieldset>
-          <label>width:</label>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
-        </fieldset>
-        <fieldset>
-          <label>height:</label>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
-        </fieldset>
-        <fieldset>
-          <label>height:</label>
-          <textarea></textarea>
-        </fieldset>
-      </form>
-      <form action="#">
-        <label class="anchor">Colors:</label>
-        <table>
-          <thead>
-            <tr>
-              <th>name</th>
-              <th>color</th>
-              <th>background</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <textarea></textarea>
-              </td>
-              <td>
-                <textarea></textarea>
-              </td>
-              <td>
-                <textarea></textarea>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <textarea></textarea>
-              </td>
-              <td>
-                <textarea></textarea>
-              </td>
-              <td>
-                <textarea></textarea>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
+    <h2 class="namespace-setting-title">V: 1.0.2</h2>
     </article>
   </section>
 </body>

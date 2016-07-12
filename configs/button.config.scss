@@ -33,11 +33,12 @@ $btn-background: #EEE !default;
 * (name, background, color)
 * 
 */
-$btn-colors:  (blue $blue #FFF)
-              (green $green #FFF)
-              (orange $orange #FFF)
-              (while #FFF black)
-              (grey $grey #FFF) !default;
+$btn-colors-doc: name background color;
+$btn-colors:  blue $blue #FFF,
+              green $green #FFF,
+              orange $orange #FFF,
+              while #FFF black,
+              grey $grey #FFF !default;
 
 
 /*
@@ -51,7 +52,8 @@ $btn-colors:  (blue $blue #FFF)
 * (name width height padding)
 * 
 */
+$btn-sizes-doc: name width height padding;
 $btn-sizes: (smaller 28px 20px 4px)
-            (small 86px 28px 5px) 
+            (small 86px 28px 5px)
             (large 180px 50px 10px)
             (larger 268px 38px 10px) !default;
