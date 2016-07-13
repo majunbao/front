@@ -10,10 +10,24 @@ app.use(function*(next) {
   let module = this.path;
   yield next;
   this.set('Access-Control-Allow-Origin', '*')
-  this.body = getModule(module);
+  
 });
 
 app.listen(3000);
+
+app.use(function*(next) {
+  let port = this.host;
+
+  yield next;
+  if(port.includes('3000')){
+    this.body = getModule(module);
+  }else if(port.includes('3001')){
+
+  }
+  
+});
+
+app.listen(3001)
 
 function distHtml(content, css) {
   let html = `<!DOCTYPE html>
