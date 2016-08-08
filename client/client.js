@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var xhr = new XMLHttpRequest();
     var container = document.getElementById('namespace-setting-container');
     var body = document.getElementById('namespace-uikit');
+    
     // 渲染
     function render() {
       var module = modules[i];

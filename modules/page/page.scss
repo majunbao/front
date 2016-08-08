@@ -1,4 +1,5 @@
 @import 'theme';
+
 .page {
   font-size: 0;
   -webkit-user-select:none;
@@ -13,7 +14,7 @@
   font-size: 14px;
   display: inline-block;
   line-height: 1.5;
-  vertical-align: middle; /*ie678 解决汉子和数字上下不对齐*/
+  vertical-align: middle; /*ie678 解决汉字和数字上下不对齐*/
 }
 .page a:first-child {
   border-top-left-radius: var(--radius);
